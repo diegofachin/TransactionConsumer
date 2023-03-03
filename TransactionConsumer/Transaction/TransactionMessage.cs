@@ -1,10 +1,16 @@
 ﻿using Domain.Enum;
-using System.ComponentModel.DataAnnotations.Schema;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Domain.Entities;
+namespace TransactionConsumer.Transaction;
 
-public class TransactionEntity : BaseEntity
+public class TransactionMessage
 {
+    public Guid Id { get; set; }
+
     public string NumberCard { get; set; }
 
     public string NameOnCreditCard { get; set; }

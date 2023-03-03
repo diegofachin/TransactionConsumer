@@ -14,7 +14,7 @@ public static class IoC
         services.AddRepository();
 
         services.AddDbContext<PurchaseAppDbContext>(opt => opt
-            .UseSqlServer(configuration.GetConnectionString("PurchaseAppConnection")));
+            .UseSqlServer(configuration.GetConnectionString("PurchaseAppConnection")), ServiceLifetime.Singleton);
 
         return services;
     }

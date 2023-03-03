@@ -5,7 +5,7 @@ namespace Infra.Repositories;
 
 public class TransactionRepository : GenericRepository<TransactionEntity>, ITransactionRepository
 {
-    public TransactionRepository(PurchaseAppDbContext context) : base(context)
+    public TransactionRepository(IServiceProvider provider) : base(provider)
     {
     }
 }

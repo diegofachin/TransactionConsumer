@@ -1,6 +1,7 @@
 ﻿using Domain.Interfaces;
 using Infra.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Infra.Repositories;
 
@@ -8,9 +9,9 @@ public abstract class GenericRepository<T> : IGenericRepository<T> where T : cla
 {
     protected readonly PurchaseAppDbContext _context;
 
-    protected GenericRepository(PurchaseAppDbContext context)
+    protected GenericRepository(IServiceProvider provider)
     {
-        _context = context;
+        _context = provider.CreateScope().ServiceProvider.GetRequiredService<PurchaseAppDbContext>();        
     }
 
     public async Task<T> Get(int id)
