@@ -24,7 +24,6 @@ namespace TransactionConsumer
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            //var queue = _bus.Advanced.QueueDeclare("transaction_purchase", options => {});
             var queue = _bus.Advanced.QueueDeclare("transaction_purchase");
 
             _bus.Advanced.Consume(queue, (byte[] content, MessageProperties properties, MessageReceivedInfo info) =>
