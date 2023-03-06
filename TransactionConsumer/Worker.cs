@@ -38,6 +38,9 @@ namespace TransactionConsumer
 
         private void ProcessTransaction(TransactionMessage transactionMessage)
         {
+            //TODO: Aqui, antes de definir o status da transação, poderiamos efeturar o processamento real, validando o cartão. 
+            //TODO: Em caso de sucesso, poderiamos atualizar a transação para Approved, caso contrário é necessário atualizar como Refused.
+
             var transaction = new TransactionEntity()
             {
                 Id = transactionMessage.Id,
